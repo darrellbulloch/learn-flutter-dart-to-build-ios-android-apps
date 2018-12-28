@@ -1,6 +1,6 @@
 # flutter_course
 
-A new Flutter project.
+Shows how to add local image assets.
 
 # Classes used
 
