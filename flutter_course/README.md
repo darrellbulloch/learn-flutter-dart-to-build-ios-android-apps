@@ -1,6 +1,6 @@
 # flutter_course
 
-Shows how to add local image assets.
+Shows how to add local image assets using pubspec.yaml file.
 
 # Classes used
 
@@ -8,12 +8,32 @@ Shows how to add local image assets.
 - [BuildContext](https://docs.flutter.io/flutter/widgets/BuildContext-class.html)
 - [Card](https://docs.flutter.io/flutter/material/Card-class.html)
 - [Column](https://docs.flutter.io/flutter/widgets/Column-class.html)
+- [Container](https://docs.flutter.io/flutter/widgets/Container-class.html)
+- [EdgeInsets](https://docs.flutter.io/flutter/painting/EdgeInsets-class.html)
 - [Image](https://docs.flutter.io/flutter/dart-ui/Image-class.html)
 - [MaterialApp](https://docs.flutter.io/flutter/material/MaterialApp-class.html)
+- [RaisedButton](https://docs.flutter.io/flutter/material/RaisedButton-class.html)
 - [Scaffold](https://docs.flutter.io/flutter/material/Scaffold-class.html)
+- [State](https://docs.flutter.io/flutter/widgets/State-class.html)
+- [StatefulWidget](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
 - [StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html)
 - [Text](https://docs.flutter.io/flutter/scheduler/TickerProvider-class.html)
 - [Widget](https://docs.flutter.io/flutter/widgets/Widget-class.html)
+
+## Start Development Environment
+
+1. Start Emulator
+   cd C:\Users\u304641\AppData\Local\Android\sdk\emulator
+   emulator -list-avds   
+   emulator -avd Nexus_5X_API_28
+
+2. Run Project on Emulator
+   cd udemy-learn-flutter-dart-to-build-ios-android-apps
+   flutter run
+
+3. Commit Source Code to GitHub
+   udemy-learn-flutter-dart-to-build-ios-android-apps
+   commit.bat
 
 ## Getting Started
 
