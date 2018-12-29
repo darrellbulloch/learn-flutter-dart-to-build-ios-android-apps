@@ -7,6 +7,7 @@ Shows how to add local image assets using pubspec.yaml file.
 - [AppBar](https://docs.flutter.io/flutter/material/AppBar-class.html)
 - [BuildContext](https://docs.flutter.io/flutter/widgets/BuildContext-class.html)
 - [Card](https://docs.flutter.io/flutter/material/Card-class.html)
+- [Colors](https://docs.flutter.io/flutter/material/Colors-class.html)
 - [Column](https://docs.flutter.io/flutter/widgets/Column-class.html)
 - [Container](https://docs.flutter.io/flutter/widgets/Container-class.html)
 - [EdgeInsets](https://docs.flutter.io/flutter/painting/EdgeInsets-class.html)
@@ -18,6 +19,8 @@ Shows how to add local image assets using pubspec.yaml file.
 - [StatefulWidget](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
 - [StatelessWidget](https://docs.flutter.io/flutter/widgets/StatelessWidget-class.html)
 - [Text](https://docs.flutter.io/flutter/scheduler/TickerProvider-class.html)
+- [Theme](https://docs.flutter.io/flutter/material/Theme-class.html)
+- [ThemeData](https://docs.flutter.io/flutter/material/ThemeData-class.html)
 - [Widget](https://docs.flutter.io/flutter/widgets/Widget-class.html)
 
 ## Start Development Environment
