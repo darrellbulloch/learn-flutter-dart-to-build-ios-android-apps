@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './root_text.dart';
+import './text_control.dart';
 
 class App extends StatelessWidget {
   @override
@@ -10,7 +10,7 @@ class App extends StatelessWidget {
           appBar: AppBar(
             title: Text('Widgets Basics Assignment Problem'),
           ),
-          body: RootText()),
+          body: TextControl()),
     );
   }
 }
