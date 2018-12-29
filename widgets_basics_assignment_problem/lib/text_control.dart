@@ -4,24 +4,24 @@ import './output_text.dart';
 class TextControl extends StatefulWidget {
   @override
   State<TextControl> createState() {
-    return TextControlState();
+    return _TextControlState();
   }
 }
 
-class TextControlState extends State<TextControl> {
-  String currentText =
+class _TextControlState extends State<TextControl> {
+  String _currentText =
       'Widgets Basics Assignment Problem - Initial Text Multiple files';
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        OutputText(currentText),
+        OutputText(_currentText),
         RaisedButton(
           child: Text('Change Text'),
           onPressed: () {
             setState(() {
-              currentText = 'Changed Text';
+              _currentText = 'Changed Text';
             });
           },
         )
