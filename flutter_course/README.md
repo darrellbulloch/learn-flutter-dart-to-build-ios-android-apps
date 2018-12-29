@@ -28,11 +28,11 @@ Shows how to add local image assets using pubspec.yaml file.
    emulator -avd Nexus_5X_API_28
 
 2. Run Project on Emulator
-   cd udemy-learn-flutter-dart-to-build-ios-android-apps
+   C:\Users\u304641\workspace-flutter\udemy-learn-flutter-dart-to-build-ios-android-apps\flutter_course
    flutter run
 
 3. Commit Source Code to GitHub
-   udemy-learn-flutter-dart-to-build-ios-android-apps
+   C:\Users\u304641\workspace-flutter\udemy-learn-flutter-dart-to-build-ios-android-apps
    commit.bat
 
 ## Getting Started
