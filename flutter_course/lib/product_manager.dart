@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './products.dart';
+import './product_controller.dart';
 
 class ProductManager extends StatefulWidget {
   // received from outside and cannot be change
@@ -18,7 +19,7 @@ class ProductManager extends StatefulWidget {
 }
 
 class ProductManagerState extends State<ProductManager> {
-  List<String> _products = [];
+  final List<String> _products = [];
 
   @override
   void initState() {
@@ -41,6 +42,19 @@ class ProductManagerState extends State<ProductManager> {
     super.didUpdateWidget(oldWidget);
   }
 
+  void _addProduct(String product) {
+    // Notify the framework that the internal state of this object
+    // has changed.
+    // Whenever you change the internal state of a [State] object,
+    // make the change in a function that you pass to [setState]:
+    // The provided callback is immediately called synchronously.
+    // It must not return a future (the callback cannot be async),
+    // since then it would be unclear when the state was actually being set.
+    setState(() {
+      _products.add(product);
+    });
+  }
+
   ProductManagerState() {
     print('[ProductManagerState Widget] Constructor');
   }
@@ -52,22 +66,7 @@ class ProductManagerState extends State<ProductManager> {
       children: <Widget>[
         Container(
           margin: EdgeInsets.all(10.0),
-          child: RaisedButton(
-            color: Theme.of(context).primaryColor,
-            onPressed: () {
-              // Notify the framework that the internal state of this object
-              // has changed.
-              // Whenever you change the internal state of a [State] object,
-              // make the change in a function that you pass to [setState]:
-              // The provided callback is immediately called synchronously.
-              // It must not return a future (the callback cannot be async),
-              // since then it would be unclear when the state was actually being set.
-              setState(() {
-                _products.add('Advanced Food Tester');
-              });
-            },
-            child: Text('Add Product'),
-          ),
+          child: ProductController(_addProduct),
         ),
         Products(_products),
       ],
