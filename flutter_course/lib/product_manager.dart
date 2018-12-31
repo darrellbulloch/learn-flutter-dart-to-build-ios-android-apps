@@ -57,6 +57,12 @@ class ProductManagerState extends State<ProductManager> {
     });
   }
 
+  void deleteProduct(int index) {
+    setState(() {
+      _products.removeAt(index);
+    });
+  }
+
   ProductManagerState() {
     print('[ProductManagerState Widget] Constructor');
   }
@@ -71,7 +77,7 @@ class ProductManagerState extends State<ProductManager> {
           child: ProductController(_addProduct),
         ),
         Expanded(
-          child: Products(_products),
+          child: Products(_products, deleteProduct: deleteProduct),
         ),
         // Container(
         //   height: 300.0,

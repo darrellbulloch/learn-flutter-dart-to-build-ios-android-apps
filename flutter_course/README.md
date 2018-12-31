@@ -31,6 +31,7 @@ Shows how to add local image assets using pubspec.yaml file.
 - [Theme](https://docs.flutter.io/flutter/material/Theme-class.html)
 - [ThemeData](https://docs.flutter.io/flutter/material/ThemeData-class.html)
 - [Widget](https://docs.flutter.io/flutter/widgets/Widget-class.html)
+- [WillPopScope](https://docs.flutter.io/flutter/widgets/WillPopScope-class.html)
 
 ## Start Development Environment
 

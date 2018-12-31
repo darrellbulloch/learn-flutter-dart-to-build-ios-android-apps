@@ -4,9 +4,10 @@ import './pages/product.dart';
 class Products extends StatelessWidget {
   // Products is immutable, which is required for StatelessWidgets
   final List<Map<String, String>> products;
+  final Function deleteProduct;
 
   // optional parameter
-  Products([this.products = const []]) {
+  Products(this.products, {this.deleteProduct}) {
     print('[Products Widget] Constructor');
   }
 
@@ -28,7 +29,9 @@ class Products extends StatelessWidget {
                             products[index]['title'], products[index]['image']),
                       ),
                     ).then((bool value) {
-                      print(value);
+                      if (value) {
+                        deleteProduct(index);
+                      }
                     }),
               ),
             ],
