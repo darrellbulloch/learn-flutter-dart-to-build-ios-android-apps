@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
 import './product_manager.dart';
 
 void main() {
+  // debugPaintSizeEnabled = true;
+  // debugPaintBaselinesEnabled = true;
+  // debugPaintPointersEnabled = true;
+
   Widget app = MyApp();
 
   runApp(app);
@@ -13,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // debugShowMaterialGrid: true,
       theme: ThemeData(
         // brightness: Brightness.dark,
         primarySwatch: Colors.deepOrange,
@@ -22,9 +28,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('EasyList'),
         ),
-        body: ProductManager(
-          startingProduct: 'Food Tester', // named parameter with default value
-        ),
+        body: ProductManager(),
       ),
     );
   }

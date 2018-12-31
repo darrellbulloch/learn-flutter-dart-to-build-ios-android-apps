@@ -7,7 +7,7 @@ class ProductManager extends StatefulWidget {
   // note that the state is managed in the State class below
   final String startingProduct;
 
-  ProductManager({this.startingProduct = 'Sweet Tester'}) {
+  ProductManager({this.startingProduct}) {
     print('[ProductManager Widget] Constructor');
   }
 
@@ -33,7 +33,9 @@ class ProductManagerState extends State<ProductManager> {
     // Note that initState() runs before build(), so there is no
     // need to tell Flutter that the state is changing via setState()
     // Nothing has been rendered to the device yet, so no need to re-render.
-    _products.add(widget.startingProduct);
+    if (widget.startingProduct != null) {
+      _products.add(widget.startingProduct);
+    }
   }
 
   @override
@@ -68,7 +70,13 @@ class ProductManagerState extends State<ProductManager> {
           margin: EdgeInsets.all(10.0),
           child: ProductController(_addProduct),
         ),
-        Products(_products),
+        Expanded(
+          child: Products(_products),
+        ),
+        // Container(
+        //   height: 300.0,
+        //   child: Products(_products),
+        // ),
       ],
     );
   }
