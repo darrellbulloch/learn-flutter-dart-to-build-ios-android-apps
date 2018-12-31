@@ -5,7 +5,7 @@ import './product_controller.dart';
 class ProductManager extends StatefulWidget {
   // received from outside and cannot be change
   // note that the state is managed in the State class below
-  final String startingProduct;
+  final Map<String, String> startingProduct;
 
   ProductManager({this.startingProduct}) {
     print('[ProductManager Widget] Constructor');
@@ -19,7 +19,7 @@ class ProductManager extends StatefulWidget {
 }
 
 class ProductManagerState extends State<ProductManager> {
-  final List<String> _products = [];
+  final List<Map<String, String>> _products = [];
 
   @override
   void initState() {
@@ -44,7 +44,7 @@ class ProductManagerState extends State<ProductManager> {
     super.didUpdateWidget(oldWidget);
   }
 
-  void _addProduct(String product) {
+  void _addProduct(Map<String, String> product) {
     // Notify the framework that the internal state of this object
     // has changed.
     // Whenever you change the internal state of a [State] object,
