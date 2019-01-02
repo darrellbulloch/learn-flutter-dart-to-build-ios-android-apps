@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AuthPage extends StatelessWidget {
-  String emailAddressValue;
-  String passwordValue;
+class AuthPage extends StatefulWidget {
+  @override
+  State<AuthPage> createState() {
+    return _AuthPageState();
+  }
+}
+
+class _AuthPageState extends State<AuthPage> {
+  String _emailValue;
+  String _passwordValue;
 
   @override
   Widget build(BuildContext context) {
@@ -10,43 +17,49 @@ class AuthPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Login'),
       ),
-      body: Center(
-          child: ListView(
-        children: <Widget>[
-          TextField(
-            onChanged: (String value) {
-              emailAddressValue = value;
-            },
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              labelText: 'Email Address',
+      body: Container(
+        margin: EdgeInsets.all(10.0),
+        child: ListView(
+          children: <Widget>[
+            TextField(
+              onChanged: (String value) {
+                setState(() {
+                  _emailValue = value;
+                });
+              },
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+              ),
             ),
-          ),
-          TextField(
-            onChanged: (String value) {
-              passwordValue = value;
-            },
-            keyboardType: TextInputType.text,
-            obscureText: true,
-            decoration: InputDecoration(
-              labelText: 'Password',
+            TextField(
+              onChanged: (String value) {
+                setState(() {
+                  _passwordValue = value;
+                });
+              },
+              keyboardType: TextInputType.text,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Password',
+              ),
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          RaisedButton(
-            color: Theme.of(context).accentColor,
-            textColor: Colors.white,
-            onPressed: () {
-              print('Email Address = ${emailAddressValue}');
-              print('Password = ${passwordValue}');
-              Navigator.pushReplacementNamed(context, 'products');
-            },
-            child: Text('Login'),
-          ),
-        ],
-      )),
+            SizedBox(
+              height: 10.0,
+            ),
+            RaisedButton(
+              color: Theme.of(context).primaryColor,
+              textColor: Colors.white,
+              onPressed: () {
+                print('Email = $_emailValue');
+                print('Password = $_passwordValue');
+                Navigator.pushReplacementNamed(context, 'products');
+              },
+              child: Text('Login'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
