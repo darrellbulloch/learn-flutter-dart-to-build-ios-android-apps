@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Products extends StatelessWidget {
   // Products is immutable, which is required for StatelessWidgets
-  final List<Map<String, dynamic>> products;
+  final List<Map<String, dynamic>> _products;
 
-  Products(this.products) {
+  Products(this._products) {
     print('[Products Widget] Constructor');
   }
 
@@ -12,8 +12,8 @@ class Products extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset(products[index]['image']),
-          Text(products[index]['title']),
+          Image.asset(_products[index]['image']),
+          Text(_products[index]['title']),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -34,10 +34,10 @@ class Products extends StatelessWidget {
       child: Text('No products found, please add some.'),
     );
 
-    if (products.length > 0) {
+    if (_products.length > 0) {
       productCards = ListView.builder(
         itemBuilder: _buildProductItem,
-        itemCount: products.length,
+        itemCount: _products.length,
       );
     }
 
