@@ -30,6 +30,7 @@ Shows how to add local image assets using pubspec.yaml file.
 - [Navigator](https://docs.flutter.io/flutter/widgets/Navigator-class.html)
 - [Padding](https://docs.flutter.io/flutter/widgets/Padding-class.html)
 - [RaisedButton](https://docs.flutter.io/flutter/material/RaisedButton-class.html)
+- [Row](https://docs.flutter.io/flutter/widgets/Row-class.html)
 - [Scaffold](https://docs.flutter.io/flutter/material/Scaffold-class.html)
 - [SizedBox](https://docs.flutter.io/flutter/widgets/SizedBox-class.html)
 - [State](https://docs.flutter.io/flutter/widgets/State-class.html)
