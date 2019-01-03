@@ -28,20 +28,58 @@ class Products extends StatelessWidget {
                 SizedBox(
                   width: 8.0,
                 ),
-                Text(
-                  _products[index]['price'].toString(),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 6.0,
+                    vertical: 2.5,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).accentColor,
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  child: Text(
+                    '\$${_products[index]['price'].toString()}',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6.0,
+              vertical: 2.5,
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1.0,
+              ),
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+            child: Text('Union Square, San Francisco'),
+          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButton(
-                child: Text('Details'),
-                onPressed: () => Navigator.pushNamed<bool>(
-                    context, '/product/${index.toString()}'),
-              ),
+              Row(
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.info),
+                    color: Theme.of(context).accentColor,
+                    onPressed: () => Navigator.pushNamed<bool>(
+                        context, '/product/${index.toString()}'),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.favorite_border),
+                    color: Colors.red,
+                    onPressed: () => Navigator.pushNamed<bool>(
+                        context, '/product/${index.toString()}'),
+                  ),
+                ],
+              )
             ],
           )
         ],
