@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import './product_card.dart';
+import '../../models/product.dart';
 
 class Products extends StatelessWidget {
   // Products is immutable, which is required for StatelessWidgets
-  final List<Map<String, dynamic>> _products;
+  final List<Product> _products;
 
   Products(this._products) {
     print('[Products Widget] Constructor');

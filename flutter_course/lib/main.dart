@@ -4,6 +4,7 @@ import './pages/auth.dart';
 import './pages/products_admin.dart';
 import './pages/products.dart';
 import './pages/product.dart';
+import './models/product.dart';
 
 void main() {
   //debugPaintSizeEnabled = true;
@@ -25,22 +26,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, dynamic>> _products = [];
+  List<Product> _products = [];
 
-  void _addProduct(Map<String, dynamic> product) {
-    // Notify the framework that the internal state of this object
-    // has changed.
-    // Whenever you change the internal state of a [State] object,
-    // make the change in a function that you pass to [setState]:
-    // The provided callback is immediately called synchronously.
-    // It must not return a future (the callback cannot be async),
-    // since then it would be unclear when the state was actually being set.
+  void _addProduct(Product product) {
     setState(() {
       _products.add(product);
     });
   }
 
-  void _updateProduct(int index, Map<String, dynamic> product) {
+  void _updateProduct(int index, Product product) {
     setState(() {
       _products[index] = product;
     });
@@ -65,9 +59,9 @@ class _MyAppState extends State<MyApp> {
       // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => AuthPage(),
+        '/products': (BuildContext context) => ProductsPage(_products),
         '/admin': (BuildContext context) => ProductsAdminPage(
             _addProduct, _updateProduct, _deleteProduct, _products),
-        '/products': (BuildContext context) => ProductsPage(_products),
       },
       onGenerateRoute: (RouteSettings settings) {
         // Split the path name on '/'
@@ -86,10 +80,10 @@ class _MyAppState extends State<MyApp> {
 
           return MaterialPageRoute<bool>(
             builder: (BuildContext context) => ProductPage(
-                _products[index]['title'],
-                _products[index]['image'],
-                _products[index]['description'],
-                _products[index]['price']),
+                _products[index].title,
+                _products[index].image,
+                _products[index].description,
+                _products[index].price),
           );
         } else {
           return null; // do not route

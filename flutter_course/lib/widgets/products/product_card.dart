@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import './price_tag.dart';
 import '../ui_elements/title_default.dart';
 import '../../widgets/products/address_tag.dart';
+import '../../models/product.dart';
 
 class ProductCard extends StatelessWidget {
-  final Map<String, dynamic> _product;
+  final Product _product;
   final int _productIndex;
 
   ProductCard(this._product, this._productIndex);
@@ -15,11 +16,11 @@ class ProductCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TitleDefault(_product['title']),
+          TitleDefault(_product.title),
           SizedBox(
             width: 8.0,
           ),
-          PriceTag(_product['price'].toString()),
+          PriceTag(_product.price.toString()),
         ],
       ),
     );
@@ -54,7 +55,7 @@ class ProductCard extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset(_product['image']),
+          Image.asset(_product.image),
           _buildTitlePriceRow(),
           AddressTag('Union Square, San Francisco'),
           _buildActionButtons(context),
