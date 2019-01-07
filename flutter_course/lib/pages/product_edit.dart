@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/helpers/ensure_visible.dart';
 import '../models/product.dart';
+import 'package:scoped_model/scoped_model.dart';
+import '../scoped_models/products.dart';
 
 class ProductEditPage extends StatefulWidget {
   final Function addProduct;
@@ -104,6 +106,19 @@ class _ProductEditPageState extends State<ProductEditPage> {
     );
   }
 
+  Widget _buildSubmitButton() {
+    return ScopedModelDescendant<ProductsModel>(
+      builder: (BuildContext context, Widget child, ProductsModel model) {
+        return RaisedButton(
+          child: Text('Save'),
+          // color: Theme.of(context).accentColor, -- set by theme
+          textColor: Colors.white,
+          onPressed: () => _submitForm(model.addProduct, model.updateProduct),
+        );
+      },
+    );
+  }
+
   Widget _buildPageContent(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double targetWidth = deviceWidth > 550.0 ? 500 : deviceWidth * 0.95;
@@ -126,12 +141,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
               SizedBox(
                 height: 10.0,
               ),
-              RaisedButton(
-                child: Text('Save'),
-                // color: Theme.of(context).accentColor, -- set by theme
-                textColor: Colors.white,
-                onPressed: _submitForm,
-              ),
+              _buildSubmitButton(),
               // GestureDetector(
               //   onTap: _submitForm,
               //   child: Container(
@@ -147,7 +157,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
     );
   }
 
-  void _submitForm() {
+  void _submitForm(Function addProduct, Function updateProduct) {
     // If at least 1 field's validation fails,
     // return and not process the form
     if (!_formKey.currentState.validate()) {
@@ -157,14 +167,14 @@ class _ProductEditPageState extends State<ProductEditPage> {
     _formKey.currentState.save();
 
     if (widget.product == null) {
-      widget.addProduct(Product(
+      addProduct(Product(
         title: _formData['title'],
         description: _formData['description'],
         price: _formData['price'],
         image: _formData['image'],
       ));
     } else {
-      widget.updateProduct(
+      updateProduct(
           widget.productIndex,
           Product(
             title: _formData['title'],
